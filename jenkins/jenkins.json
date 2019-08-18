@@ -22,7 +22,8 @@
             ]
         },
         {
-            "type": "debug-breakpoint"
+            "type": "breakpoint",
+            "note": "Something"
         }
     ]
 }

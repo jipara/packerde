@@ -29,9 +29,8 @@
             "destination": "/tmp/test_file"
         },
         {
-            "type": "file",
-            "source": "app.tar.gz",
-            "destination": "/tmp/app.tar.gz"
+            "type": "breakpoint",
+            "note": "Test Jenkins"
         }
     ]
 }

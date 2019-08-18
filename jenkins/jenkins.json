@@ -5,6 +5,7 @@
             "region": "us-east-2",
             "instance_type": "m5.large",
             "ssh_username": "ec2-user",
+            "ssh_key_pair": "Macbook_Pro",
             "source_ami": "ami-0d8f6eb4f641ef691",
             "ami_name": "updated-jenkins-ami {{timestamp}}"
         }
@@ -23,13 +24,14 @@
             ]
         },
         {
-            "type": "breakpoint",
-            "note": "Something"
-        },
-        {
             "type": "file",
             "source": "test_file",
             "destination": "/tmp/test_file"
+        },
+        {
+            "type": "file",
+            "source": "app.tar.gz",
+            "destination": "/tmp/app.tar.gz"
         }
     ]
 }

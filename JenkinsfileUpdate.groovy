@@ -58,29 +58,19 @@ pipeline{
                 }
             }
         }
-        stage("Filter AMI"){
-            steps{
-                def AMI 
-                if (REGION == "us-east-2"){
-                    AMI = "ami-0d8f6eb4f641ef691"
-                } else if (REGION == "us-east-1"){
-                    AMI = "ami-0b898040803850657"
-                }
-            }
-        }
         stage("Build Image"){
             steps{
-                sh 'packer build -var "region=${REGION}" -var "AMI=${AMI}" updated/updated.json'
+                sh 'packer build -var "region=${REGION}" updated/updated.json'
                 echo "Hello"
             }
         }
     }
     post{
-      success {
-          echo "Done"
-      }
-      failure {
-          mail to:  "zhypargul.esengulova@gmail.com", subject: "job", body: "job completed"
+        success {
+            echo "Done"
         }
-    }    
+        failure {
+            mail to:  "zhypargul.esengulova@gmail.com", subject: "job", body: "job completed"
+        }
+    }
 }
